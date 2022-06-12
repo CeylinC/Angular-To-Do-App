@@ -1,0 +1,33 @@
+<div class="TodoApp">
+    <div class="container">
+        <div>
+            <h1>ToDo App</h1>
+        </div>
+        <div class="TodoList">
+            <div class="input-group mt-4">
+                <input type="text" #description class="form-control" placeholder="Add Description..." (keyup.enter)="addItem(description.value); description.value='';">
+            </div>
+            <div class="alert alert-danger mt-3" [class]="{'display': !error}">
+                <p>Geçersiz Etkinlik İsmi!</p>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="displayAll" #displayall [(ngModel)]="display">
+                <label class="form-check-label" for="displayAll">Display All</label>
+              </div>   
+            <table class="table mt-4">
+                <thead>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of getItems(); let i= index" (click)="changeAction(i);" [class]="{'green': item.action ==='yes'}">
+                        <td>{{i+1}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.action}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

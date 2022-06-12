@@ -1,0 +1,36 @@
+.TodoApp{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 98vh;//flex kullanacaksan h vermeyi unutma!!!
+
+        &>.container{
+            padding: 30px;
+        }
+        & h1{
+            text-align: center;
+            font-weight: bold;
+        }
+        & .TodoList{
+            padding: 0px 20px;
+
+            & tr{
+                background-color: azure;
+                transition: 0.1s;
+                
+                &:hover{
+                    background-color: rgb(111, 255, 255);
+                }
+            }
+
+            & .green{
+                background-color: rgb(157, 252, 157);
+                &:hover{
+                    background-color: greenyellow;
+                }
+            }
+        }
+        & .display{
+            display: none;
+        }
+}
